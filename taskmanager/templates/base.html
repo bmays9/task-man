@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 
@@ -35,6 +35,28 @@
 
     <main class="container">
         {% block content %}
+
+        <h3 class="light-blue-text text-darken-4 center-align">Tasks</h3>
+        
+        <div class="row">
+            
+            {% for task in tasks %}
+            <div class="col s12 m6 l3">
+                <div class="card light-blue darken-4 center-align">
+                    <div class="card-content white-text">
+                        <div class="card-title">{{ task.task_name }}</div>
+                        <div class="card-title">{{ task.task_description }}</div>
+                        <div class="card-title">{{ task.due_date }}</div>
+                        <div class="card-title">{{ task.task_name }}</div>
+                    </div>
+                    <div class="card-action">
+                      
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
         {% endblock %}
     </main>
 
